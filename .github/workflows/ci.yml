@@ -40,3 +40,7 @@ jobs:
 
       - name: Run code style check
         run: npm run style:all
+        
+      - name: Run unit tests
+        run: npm run test:ci
+        
