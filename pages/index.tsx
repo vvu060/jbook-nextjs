@@ -7,6 +7,8 @@ const Home = () => {
 
   const onClick = async () => {
     if (!ref.current) return;
+
+    setCode('Dummy Text');
   };
 
   return (
