@@ -6,11 +6,12 @@ import { fetchPlugin } from '../plugins/fetch-plugin';
 import { unpkgPathPlugin } from '../plugins/unpkg-path-plugin';
 
 import CodeEditor from '@/components/CodeEditor';
+import Preview from '@/components/Preview';
 
 const Home = () => {
   const ref = useRef<any>();
-  const iframe = useRef<any>();
   const [input, setInput] = useState('');
+  const [code, setCode] = useState('');
 
   const startService = async () => {
     ref.current = await esbuild.startService({
@@ -26,8 +27,6 @@ const Home = () => {
   const onClick = async () => {
     if (!ref.current) return;
 
-    iframe.current.srcdoc = html;
-
     const result = await ref.current.build({
       entryPoints: ['index.js'],
       bundle: true,
@@ -39,49 +38,19 @@ const Home = () => {
       },
     });
 
-    iframe.current.contentWindow.postMessage(result.outputFiles[0].text, '*');
+    setCode(result.outputFiles[0].text);
   };
-
-  const html = `
-  <html>
-    <head></head>
-    <body>
-      <div id="root">
-        <script>
-          window.addEventListener('message', (e) => {
-            try{
-              eval(e.data);
-            } catch(err){
-              const root = document.getElementById('root');
-              root.innerHTML = '<div style="color:red;"><h4>Runtime Error:</h4>' + err + '</div>';
-              console.error(err);
-            }
-          }, false); 
-        </script>
-      </div> 
-    </body>
-  </html>
-`;
 
   return (
     <div>
       <CodeEditor
         initialValue="const a = 1;"
-        onChange={(e) => setInput(e.target.value)}
+        onChange={(value) => setInput(value)}
       />
-      <textarea
-        value={input}
-        // onChange={(e) => setInput(e.target.value)}
-      ></textarea>
       <div>
         <button onClick={onClick}>Submit</button>
       </div>
-      <iframe
-        ref={iframe}
-        sandbox="allow-scripts"
-        srcDoc={html}
-        title="preview"
-      ></iframe>
+      <Preview code={code} />
     </div>
   );
 };
