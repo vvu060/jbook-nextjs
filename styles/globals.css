@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .editor-wrapper {
+    @apply relative h-full;
+  }
+
+  .editor-wrapper .button-format {
+    @apply absolute top-1 right-1 z-20 opacity-0 transition  duration-300;
+  }
+
+  .editor-wrapper:hover .button-format {
+    @apply opacity-100;
+  }
+}
