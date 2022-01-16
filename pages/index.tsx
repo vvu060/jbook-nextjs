@@ -1,8 +1,11 @@
-import CodeEditor from '@/components/CodeEditor';
+import 'bulmaswatch/superhero/bulmaswatch.min.css';
 import * as esbuild from 'esbuild-wasm';
 import { useState, useRef, useEffect } from 'react';
+
 import { fetchPlugin } from '../plugins/fetch-plugin';
 import { unpkgPathPlugin } from '../plugins/unpkg-path-plugin';
+
+import CodeEditor from '@/components/CodeEditor';
 
 const Home = () => {
   const ref = useRef<any>();
