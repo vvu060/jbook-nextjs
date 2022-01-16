@@ -72,7 +72,7 @@ const Home = () => {
         ref={iframe}
         sandbox="allow-scripts"
         srcDoc={html}
-        title="jbook"
+        title="preview"
       ></iframe>
     </div>
   );
