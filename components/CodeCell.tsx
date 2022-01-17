@@ -8,11 +8,13 @@ import Resizable from './Resizable';
 const CodeCell = () => {
   const [input, setInput] = useState('');
   const [code, setCode] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const timer = setTimeout(async () => {
       const output = await bundle(input);
-      setCode(output);
+      setCode(output.code);
+      setError(output.error);
     }, 750);
 
     return () => {
@@ -30,7 +32,7 @@ const CodeCell = () => {
           />
         </Resizable>
 
-        <Preview code={code} />
+        <Preview code={code} error={error} />
       </div>
     </Resizable>
   );
