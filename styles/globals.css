@@ -4,7 +4,10 @@
 
 @layer components {
   .editor-wrapper {
-    @apply relative h-full w-full;
+    /* @apply relative h-full calc(w-full - [10px]); */
+    position: relative;
+    height: 100%;
+    width: calc(100% - 10px);
   }
 
   .editor-wrapper .button-format {
@@ -15,12 +18,20 @@
     @apply opacity-100;
   }
 
-  .react-draggable-transparent-selection .preview-wrapper {
-    @apply relative h-full after:content-[''] after:absolute after:inset-0 after:opacity-0;
+  .preview-wrapper {
+    @apply relative h-full flex-1 after:content-[''] after:absolute after:inset-0 after:opacity-0;
   }
 
   .preview-wrapper iframe {
-    @apply h-full bg-white;
+    @apply h-full w-full;
+  }
+
+  .react-draggable-transparent-selection .preview-wrapper:after {
+    @apply content-[''] absolute inset-0 opacity-0;
+  }
+
+  .resize-horizontal {
+    @apply flex;
   }
 
   /* .react-resizable-handle {
