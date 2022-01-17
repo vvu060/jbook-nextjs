@@ -10,8 +10,7 @@ const customJestConfig = {
   setupFilesAfterEnv: ['./jest.setup.js'],
   moduleNameMapper: {
     // Handle module aliases (this will be automatically configured for you soon)
-    '^@/components/(.*)$': './components/$1',
-
+    '^@/components/(.*)$': './components/*.*',
     '^@/pages/(.*)$': './pages/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
