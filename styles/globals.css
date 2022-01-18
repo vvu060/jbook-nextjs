@@ -1,3 +1,77 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .editor-wrapper {
+    /* @apply relative h-full calc(w-full - [10px]); */
+    position: relative;
+    height: 100%;
+    width: calc(100% - 10px);
+  }
+
+  .editor-wrapper .button-format {
+    @apply absolute top-1 right-1 z-20 opacity-0 transition  duration-300;
+  }
+
+  .editor-wrapper:hover .button-format {
+    @apply opacity-100;
+  }
+
+  .preview-wrapper {
+    @apply relative h-full flex-1 after:content-[''] after:absolute after:inset-0 after:opacity-0;
+  }
+
+  .preview-wrapper iframe {
+    @apply h-full w-full;
+  }
+
+  .react-draggable-transparent-selection .preview-wrapper:after {
+    @apply content-[''] absolute inset-0 opacity-0;
+  }
+
+  .resize-horizontal {
+    @apply flex;
+  }
+
+  .preview-error {
+    @apply absolute top-3 left-3 text-red-500;
+  }
+
+  /* .react-resizable-handle {
+    @apply block bg-[#37414b] bg-no-repeat;
+    background-position: 50%;
+  }
+
+  .react-resizable-handle-s {
+    @apply h-3 w-full cursor-row-resize;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
+  }
+
+  .react-resizable-handle-e {
+    @apply w-3 min-w-[10px] h-full cursor-col-resize;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+  } */
+}
+
+.react-resizable-handle {
+  display: block;
+  background-color: #37414b;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.react-resizable-handle-s {
+  height: 10px;
+  width: 100%;
+  cursor: row-resize;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
+}
+
+.react-resizable-handle-e {
+  width: 10px;
+  min-width: 10px;
+  height: 100%;
+  cursor: col-resize;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+}
