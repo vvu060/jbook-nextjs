@@ -28,6 +28,7 @@
   "env": {
     "node": true,
     "browser": true,
-    "amd": true
+    "amd": true,
+    "jest": true
   }
 }
