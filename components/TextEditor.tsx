@@ -7,9 +7,14 @@ const MarkDownEditor = dynamic(() => import('@uiw/react-md-editor'), {
   ssr: false,
 });
 
+const MarkdownPreview = dynamic(() => import('@uiw/react-markdown-preview'), {
+  ssr: false,
+});
+
 const TextEditor: React.FC = () => {
   const ref = useRef<HTMLDivElement | null>();
   const [editing, setEditing] = useState(false);
+  const [value, setValue] = useState('# Header');
 
   useEffect(() => {
     const listener = (event: MouseEvent) => {
@@ -35,16 +40,17 @@ const TextEditor: React.FC = () => {
 
   if (editing) {
     return (
-      <div ref={ref}>
-        <MarkDownEditor />
+      <div className="text-editor" ref={ref}>
+        <MarkDownEditor value={value} onChange={(v) => setValue(v)} autoFocus />
       </div>
     );
   }
 
   return (
-    <div onClick={() => setEditing(true)}>
-      {/* <MDEditor.Markdown source={'# Header'} /> */}
-      <MarkDownEditor />
+    <div className="text-editor card" onClick={() => setEditing(true)}>
+      <div className="card-content">
+        <MarkdownPreview source={value} />
+      </div>
     </div>
   );
 };
