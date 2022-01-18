@@ -18,7 +18,8 @@
     "prettier/prettier": "off", // don't show prettier errors as it will be fixed when saved anyway
     "react/jsx-filename-extension": "off",
     "import/extensions": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "@typescript-eslint/default-param-last": ["off"]
   },
   "settings": {
     "react": {
