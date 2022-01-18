@@ -7,8 +7,13 @@ interface ResizableProps {
 
 const Resizable: React.FC<ResizableProps> = ({ direction, children }) => {
   let resizableProps: ResizableBoxProps;
-  const [innerHeight, setInnerHeight] = useState(1000);
-  const [innerWidth, setInnerWidth] = useState(1000);
+
+  const [innerHeight, setInnerHeight] = useState(
+    typeof window !== 'undefined' && window.innerHeight,
+  );
+  const [innerWidth, setInnerWidth] = useState(
+    typeof window !== 'undefined' && window.innerWidth,
+  );
   const [width, setWidth] = useState(
     typeof window !== 'undefined' && window.innerWidth * 0.75,
   );
