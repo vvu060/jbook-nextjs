@@ -1,11 +1,22 @@
 import MDEditor from '@uiw/react-md-editor';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const TextEditor: React.FC = () => {
+  const ref = useRef<HTMLDivElement | null>();
   const [editing, setEditing] = useState(false);
 
   useEffect(() => {
-    const listener = () => {
+    const listener = (event: MouseEvent) => {
+      // element clicked on is inside editor
+      if (
+        ref.current &&
+        event.target &&
+        ref.current.contains(event.target as Node)
+      ) {
+        return;
+      }
+
+      // element clicked is not inside editor
       setEditing(false);
     };
 
@@ -18,7 +29,7 @@ const TextEditor: React.FC = () => {
 
   if (editing) {
     return (
-      <div>
+      <div ref={ref}>
         <MDEditor />
       </div>
     );
