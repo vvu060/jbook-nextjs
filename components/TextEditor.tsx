@@ -3,7 +3,9 @@ import '@uiw/react-markdown-preview/markdown.css';
 import dynamic from 'next/dynamic';
 import { useState, useEffect, useRef } from 'react';
 
-const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
+const MarkDownEditor = dynamic(() => import('@uiw/react-md-editor'), {
+  ssr: false,
+});
 
 const TextEditor: React.FC = () => {
   const ref = useRef<HTMLDivElement | null>();
@@ -34,7 +36,7 @@ const TextEditor: React.FC = () => {
   if (editing) {
     return (
       <div ref={ref}>
-        <MDEditor />
+        <MarkDownEditor />
       </div>
     );
   }
@@ -42,7 +44,7 @@ const TextEditor: React.FC = () => {
   return (
     <div onClick={() => setEditing(true)}>
       {/* <MDEditor.Markdown source={'# Header'} /> */}
-      <MDEditor />
+      <MarkDownEditor />
     </div>
   );
 };
