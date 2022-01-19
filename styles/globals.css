@@ -77,6 +77,12 @@
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
 }
 
+.code-cell {
+  height: calc(100% - 10px);
+  display: flex;
+  flex-direction: row;
+}
+
 /* Text Editor Styles */
 .w-md-editor .title {
   line-height: unset;
@@ -175,7 +181,8 @@
 .add-cell {
   position: relative;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease-in 0.1s;
+  margin: 10px 0;
 }
 
 .add-cell:hover {

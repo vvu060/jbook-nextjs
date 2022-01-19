@@ -30,7 +30,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
 
   return (
     <Resizable direction="vertical">
-      <div className="h-full flex">
+      <div className="code-cell">
         <Resizable direction="horizontal">
           <CodeEditor
             initialValue={cell.content}
