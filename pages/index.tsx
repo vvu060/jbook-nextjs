@@ -1,13 +1,11 @@
 import 'bulmaswatch/superhero/bulmaswatch.min.css';
 
-// import CodeCell from '@/components/CodeCell';
-import TextEditor from '@/components/TextEditor';
+import CellList from '@/components/CellList';
 
 const Home = () => {
   return (
     <div>
-      {/* <CodeCell /> */}
-      <TextEditor />
+      <CellList />
     </div>
   );
 };
