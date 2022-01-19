@@ -146,3 +146,27 @@
 .text-editor .token.list.punctuation {
   background-color: unset;
 }
+
+/* Cell List Item Component */
+.cell-list-item {
+  position: relative;
+}
+
+.action-bar-wrapper {
+  height: 30px;
+  width: 100%;
+  background-color: #37414b;
+}
+
+/* Action Bar Component */
+.action-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.25;
+  transition: opacity 0.3s;
+}
+
+.action-bar:hover {
+  opacity: 1;
+}
