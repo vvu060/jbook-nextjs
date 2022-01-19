@@ -40,7 +40,11 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
           />
         </Resizable>
 
-        {bundle && <Preview code={bundle.code} error={bundle.err} />}
+        {!bundle || bundle.loading ? (
+          <div>Loading</div>
+        ) : (
+          <Preview code={bundle.code} error={bundle.err} />
+        )}
       </div>
     </Resizable>
   );
