@@ -1,26 +1,12 @@
-import { useState, useRef } from 'react';
+import 'bulmaswatch/superhero/bulmaswatch.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+import CellList from '@/components/CellList';
 
 const Home = () => {
-  const ref = useRef<any>();
-  const [input, setInput] = useState('');
-  const [code, setCode] = useState('');
-
-  const onClick = async () => {
-    if (!ref.current) return;
-
-    setCode('Dummy Text');
-  };
-
   return (
     <div>
-      <textarea
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      ></textarea>
-      <div>
-        <button onClick={onClick}>Submit</button>
-      </div>
-      <pre>{code}</pre>
+      <CellList />
     </div>
   );
 };
