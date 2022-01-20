@@ -1,6 +1,5 @@
 import { useTypedSelector } from './use-typed-selector';
 
-// ! Need to fix this, show function not working as expected
 export const useCumulativeCode = (cellId: string) => {
   return useTypedSelector((state) => {
     const { data, order } = state.cells;
@@ -20,26 +19,27 @@ export const useCumulativeCode = (cellId: string) => {
             }
            } else {
             root.innerHTML = value;
-           };
-         }
+           }
+         };
         `;
 
     const showFuncNoop = 'var show = () => {}';
-    const cumulativeCodeArr = [];
+    const cumulativeCode = [];
 
     for (let c of orderedCells) {
       if (c.type === 'code') {
         if (c.id === cellId) {
-          cumulativeCodeArr.push(showFunc);
+          cumulativeCode.push(showFunc);
         } else {
-          cumulativeCodeArr.push(showFuncNoop);
+          cumulativeCode.push(showFuncNoop);
         }
+        cumulativeCode.push(c.content);
       }
       if (c.id === cellId) {
         break;
       }
     }
 
-    return cumulativeCodeArr;
+    return cumulativeCode;
   }).join('\n');
 };
