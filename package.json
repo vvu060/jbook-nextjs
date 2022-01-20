@@ -14,9 +14,26 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@monaco-editor/react": "3.7.5",
+    "@types/prettier": "^2.4.3",
+    "@types/react-redux": "7.1.15",
+    "@types/react-resizable": "1.7.4",
+    "@uiw/react-md-editor": "^3.6.0",
+    "axios": "0.21.1",
+    "bulmaswatch": "^0.8.1",
+    "esbuild-wasm": "0.8.27",
+    "immer": "^9.0.12",
+    "localforage": "^1.10.0",
+    "monaco-editor": "^0.31.1",
     "next": "12.0.8",
+    "next-remove-imports": "^1.0.6",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-redux": "7.2.2",
+    "react-resizable": "3.0.4",
+    "redux": "4.0.5",
+    "redux-thunk": "2.3.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.1",
