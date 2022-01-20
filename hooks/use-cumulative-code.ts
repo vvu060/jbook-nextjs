@@ -1,5 +1,6 @@
 import { useTypedSelector } from './use-typed-selector';
 
+// ! Need to fix this, show function not working as expected
 export const useCumulativeCode = (cellId: string) => {
   return useTypedSelector((state) => {
     const { data, order } = state.cells;
