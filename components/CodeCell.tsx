@@ -18,7 +18,13 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
     const { data, order } = state.cells;
     const orderedCells = order.map((id) => data[id]);
 
-    const cumulativeCodeArr = [];
+    const cumulativeCodeArr = [
+      `
+       const show = (value) => {
+         document.querySelector('#root').innerHTML = value;
+       }
+      `,
+    ];
     for (let c of orderedCells) {
       if (c.type === 'code') {
         cumulativeCodeArr.push(c.content);
