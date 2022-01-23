@@ -75,7 +75,7 @@ export const createBundle = (cellId: string, input: string) => {
   };
 };
 
-export const fetchCell = () => {
+export const fetchCells = () => {
   return async (dispatch: Dispatch<Action>) => {
     dispatch({ type: ActionType.FETCH_CELLS });
 
